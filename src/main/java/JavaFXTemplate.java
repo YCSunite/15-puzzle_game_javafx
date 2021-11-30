@@ -5,6 +5,8 @@ import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+
+// ************ LOOK FOR THIS COMMENT *********************
 public class JavaFXTemplate extends Application {
 
 	public static void main(String[] args) {
