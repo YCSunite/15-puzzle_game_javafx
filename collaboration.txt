@@ -1,9 +1,5 @@
 Matt:
--
+- Worked to created WireFrame on lucidChart
 
 Yashasvi:
--
-
-
-
-***** THE REAL NEW COMMENT ****
+- Brainstormed UI and WireFrame + worked on lucidChart wireFrame
