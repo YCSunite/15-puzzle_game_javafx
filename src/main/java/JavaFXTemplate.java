@@ -22,8 +22,6 @@ public class JavaFXTemplate extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		// TODO Auto-generated method stub
-		try {
-			// Read file fxml and draw interface.
 			URL url = Paths.get("./src/main/resources/GameScene.fxml").toUri().toURL();
 			Parent root = FXMLLoader.load(url);
 
@@ -33,10 +31,7 @@ public class JavaFXTemplate extends Application {
 			primaryStage.setScene(s1);
 			primaryStage.show();
 
-		} catch(Exception e) {
-			e.printStackTrace();
-			System.exit(1);
-		}
+
 		
 		Thread t = new Thread(()-> {A_IDS_A_15solver ids = new A_IDS_A_15solver();});
 		t.start();
