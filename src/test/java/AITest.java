@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 class AITest {
 
 	public A_IDS_A_15solver ai;
+	public DB_Solver2 solverH1;
+	public DB_Solver2 solverH2;
 	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -15,7 +17,7 @@ class AITest {
 
 	@BeforeEach
 	void setUp() throws Exception {
-		ai = new A_IDS_A_15solver();
+		ai = new A_IDS_A_15solver();		
 	}
 
 	@Test
