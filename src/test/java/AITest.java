@@ -2,8 +2,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
 
 // handles the 10 test cases for the AI
 
@@ -181,9 +179,13 @@ class AITest {
 	}
 	
 	@Test
-	void findSolutionPathTestThree() {  // test with an unsolvable board (board found at: https://www.geeksforgeeks.org/check-instance-15-puzzle-solvable/ )
-		int[] unsolvable = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
-		DB_Solver2 tmpSolver = new DB_Solver2(new Node(unsolvable), "heuristicOne");
-		assertEquals(tmpSolver.findSolutionPath(), null, "DB_Solver2 findSolutionPath() failed to return null for an unsolvable puzzle");
+	void findZeroTest() {
+		assertEquals(solverH1.findZero(gameBoard), 0, "DB_Solver2 findZero() returned incorrect index of the blank space");
+	}
+	
+	@Test
+	void findZeroTestTwo() {
+		gameBoard[0] = 1;  // test a game board that doesn't have a blank square
+		assertEquals(solverH1.findZero(gameBoard), -1, "DB_Solver2 findZero() returned incorrect value for a gameBoard with no blank space");
 	}
 }
