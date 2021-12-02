@@ -1,0 +1,9 @@
+.button{
+	-fx-font-size: 60px;
+	-fx-font-family: "serif";
+	-fx-background-color: transparent;
+}
+
+.border {
+	-fx-background-color: turquoise;
+}

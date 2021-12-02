@@ -9,8 +9,6 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.nio.file.Paths;
 
-
-// ************ LOOK FOR THIS COMMENT *********************
 public class JavaFXTemplate extends Application {
 
 	public static void main(String[] args) {
@@ -22,12 +20,12 @@ public class JavaFXTemplate extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		// TODO Auto-generated method stub
-			URL url = Paths.get("./src/main/resources/GameScene.fxml").toUri().toURL();
+			URL url = Paths.get("./src/main/resources/WelcomeScene.fxml").toUri().toURL();
 			Parent root = FXMLLoader.load(url);
 
 			primaryStage.setTitle("Welcome to 15 puzzle!!!");
 			Scene s1 = new Scene(root, 700,500);
-			s1.getStylesheets().add("GameScene.css");
+			s1.getStylesheets().add("WelcomeScene.css");
 			primaryStage.setScene(s1);
 			primaryStage.show();
 
