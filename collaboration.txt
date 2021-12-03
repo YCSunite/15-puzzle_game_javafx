@@ -6,3 +6,4 @@ Matt:
 Yashasvi:
 - Brainstormed UI and WireFrame + worked on lucidChart wireFrame
 - Implemented Gameplay scene
+- Worked on transition scene from welcome to gameplay
