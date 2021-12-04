@@ -1,12 +1,10 @@
-import javafx.animation.PauseTransition;
 import javafx.application.Application;
-
+import javafx.animation.PauseTransition;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-
-import javafx.stage.Stage;
 import javafx.util.Duration;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.nio.file.Paths;
@@ -14,6 +12,7 @@ import java.nio.file.Paths;
 public class JavaFXTemplate extends Application {
 
 	PauseTransition pause = new PauseTransition(Duration.seconds(3));
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		launch(args);
@@ -36,12 +35,12 @@ public class JavaFXTemplate extends Application {
 		//loading Welcome scene to primary stage
 			Scene s1 = new Scene(root, 700,500);
 			s1.getStylesheets().add("WelcomeScene.css");
+
 			Scene s2 = new Scene(root2, 700,500);
 			s2.getStylesheets().add("GameScene.css");
 		    pause.setOnFinished(event->primaryStage.setScene(s2));
 			pause.play();
 			primaryStage.setScene(s1);
-
 			primaryStage.show();
 
 
