@@ -11,7 +11,7 @@ import java.nio.file.Paths;
 
 public class JavaFXTemplate extends Application {
 
-	PauseTransition pause = new PauseTransition(Duration.seconds(3));
+	PauseTransition pause = new PauseTransition(Duration.seconds(10));
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -35,6 +35,7 @@ public class JavaFXTemplate extends Application {
 		//loading Welcome scene to primary stage
 			Scene s1 = new Scene(root, 700,500);
 			s1.getStylesheets().add("WelcomeScene.css");
+
 
 			Scene s2 = new Scene(root2, 700,500);
 			s2.getStylesheets().add("GameScene.css");
