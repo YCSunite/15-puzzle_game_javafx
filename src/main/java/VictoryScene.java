@@ -12,7 +12,7 @@ public class VictoryScene {
 
 
     public void newPuzzle(ActionEvent actionEvent) {
-
+        JavaFXTemplate.switchToGameScene();
     }
 
     public void ExitGame(ActionEvent actionEvent) {

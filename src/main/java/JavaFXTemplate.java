@@ -11,9 +11,10 @@ import java.nio.file.Paths;
 
 public class JavaFXTemplate extends Application {
 
-	PauseTransition pause = new PauseTransition(Duration.seconds(10));
+	PauseTransition pause = new PauseTransition(Duration.seconds(3));
 	
 	static PauseTransition pauseToVictory = new PauseTransition(Duration.seconds(2));
+	static PauseTransition pauseToGameScene = new PauseTransition(Duration.seconds(1));
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -49,6 +50,7 @@ public class JavaFXTemplate extends Application {
 			s3.getStylesheets().add("VictoryScene.css");
 			
 			pauseToVictory.setOnFinished(event->primaryStage.setScene(s3));
+			pauseToGameScene.setOnFinished(event -> primaryStage.setScene(s2));
 			
 		    pause.setOnFinished(event->primaryStage.setScene(s2));
 			pause.play();
@@ -65,5 +67,8 @@ public class JavaFXTemplate extends Application {
 	public static void switchToVictoryScene() {
 		pauseToVictory.play();
 	}
-	
+	public static void switchToGameScene(){
+		pauseToGameScene.play();
+	}
+
 }

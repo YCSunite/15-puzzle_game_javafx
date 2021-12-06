@@ -4,9 +4,14 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.net.URL;
@@ -18,6 +23,8 @@ import java.util.ResourceBundle;
 public class GameModel implements Initializable {
 	
 	private gameLogic logicBot = new gameLogic();
+	@FXML
+	private Button HowToPlay;
 	
 	/* These are the individual tiles on the game board. Note that they are zero-indexed in case we may want to add the to an array later */
 	@FXML
@@ -201,5 +208,38 @@ public class GameModel implements Initializable {
 
     public void exitGame(){
     	System.exit(0);
+	}
+
+	public void HowToply(ActionEvent actionEvent) {
+		Stage popupwindow=new Stage();
+
+		popupwindow.initModality(Modality.APPLICATION_MODAL);
+		popupwindow.setTitle("How To Play");
+
+		Label AI1= new Label("Solve with AI 1");
+		AI1.setStyle("-fx-font-family: serif;-fx-font-size: 14px;-fx-font-weight: bold;");
+		Label AI1Text = new Label("This method uses A* algorithm to solve 15 puzzle.");
+		AI1Text.setStyle("-fx-font-family: serif");
+		Label AI2= new Label("Solve with AI 2");
+		AI2.setStyle("-fx-font-family: serif;-fx-font-size: 14px;-fx-font-weight: bold");
+		Label AI2Text = new Label("This method uses Manhattan distance to solve 15 puzzle.");
+		AI2Text.setStyle("-fx-font-family: serif");
+		Label plyYourself = new Label("Play Yourself");
+		plyYourself.setStyle("-fx-font-family: serif;-fx-font-size: 14px;-fx-font-weight: bold");
+		Label instructions = new Label("Click on the zero and the number you want to \n swap it with. Play till you get the puzzle right!");
+		instructions.setStyle("-fx-font-family: serif");
+
+		Button button1= new Button("OK");
+		button1.setStyle("-fx-font-family: serif");
+		button1.setOnAction(e -> popupwindow.close());
+
+		VBox layout= new VBox(10);
+
+		layout.getChildren().addAll(AI1,AI1Text,AI2,AI2Text, plyYourself,instructions, button1);
+		layout.setAlignment(Pos.CENTER);
+
+		Scene scene1= new Scene(layout, 300, 250);
+		popupwindow.setScene(scene1);
+		popupwindow.showAndWait();
 	}
 }
