@@ -68,10 +68,10 @@ public class GameModel implements Initializable {
     
     /* this is the main function for all of the tiles in the gameboard */
     public void makeMove() {
-    			// TODO: check that it's a valid move
-    			// TODO: swap the tiles
+    			// TODO: check that it's a valid move   ---> needs more in the gameLogic class
+    			// TODO: swap the tiles   -----> need to figure out a way to get what game button called this function
     			drawGameBoard();
-    			// TODO: check for a win
+    			// TODO: check for a win   ----> also implement in gameLogic class
     }
     
     /* updates the gameBoard buttons with the values of the internal int array's values */
