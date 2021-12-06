@@ -13,13 +13,22 @@ public class gameLogic {
 	
 	static public ArrayList<ArrayList<Integer>> puzzleList = new ArrayList<ArrayList<Integer>>(); // holds all the 10 puzzles for the user to solve.
 	
+	public ArrayList<Integer> solvedGameBoardForComparison;
+	
+	public ArrayList<Node> solutionPath;
+	
 	gameLogic() {				
 		for (int i = 0; i < 10; i++) { // initialize the outer list
 			puzzleList.add(new ArrayList<Integer>());
 		}
 		
 		this.addPuzzles();
-		gameBoardData = new ArrayList<Integer>(puzzleList.get(whichPuzzle));  // initializes the gameBoard to be the first puzzle in puzzleList
+		gameBoardData = new ArrayList<Integer>(puzzleList.get(whichPuzzle));  // initializes the gameBoard to be the puzzle number specified by whichPuzzle
+		solvedGameBoardForComparison = new ArrayList<Integer>();
+		
+		for (int i = 0; i < 16; i++) {  // set up a solved ArrayList to compare to.
+			solvedGameBoardForComparison.add(i);
+		}
 	}
 	
 	private void addPuzzles() {
@@ -215,11 +224,43 @@ public class gameLogic {
 		gameBoardData = new ArrayList<Integer>(puzzleList.get(whichPuzzle));
 	}
 	
-//	public boolean isValid(String whichTile) {
-		// try to find a way to get our arrayList into a plain int array
-//		
-//		
-////		int[] gameBoardDataArray = gameBoardData.toArray(gameBoardDataArray);
-////		int zeroIndex = ai.findZero(gameBoardDataArray);
-//	}
+	public boolean isValid(int whichTile) {
+		int zeroIndex = this.findZero(gameBoardData);
+		
+		if (whichTile == (zeroIndex - 4)) {
+			return true;
+		} else if (whichTile == (zeroIndex + 4)) {
+			return true;
+		} else if ((whichTile == (zeroIndex - 1)) && ((zeroIndex != 0) && (zeroIndex != 4) && (zeroIndex != 8) && (zeroIndex != 12)) ) {  // check if it's to the left and the zero tile isn't on the total left side
+			return true;
+		} else if ((whichTile == (zeroIndex + 1)) && ((zeroIndex != 3) && (zeroIndex != 7) && (zeroIndex != 11) && (zeroIndex != 15)) ) { // check if it's to the right and the zero tile isn't on the total right side
+			return true; 
+		} else { 
+			return false;
+		}
+	}
+	
+	
+	// identical to DB_Solver2 method, but now works with ArrayList parameter instead of int array
+	public int findZero(ArrayList<Integer> gameBoard) {
+		for (int i = 0; i < gameBoard.size(); i++) {
+			if (gameBoard.get(i) == 0) {
+				return i;
+			}
+		}
+		return -1;
+	}
+	
+	public boolean isSolved() {
+		return this.gameBoardData.equals(solvedGameBoardForComparison);
+	}
+	
+	public void solveWithAIOne() {
+		
+	}
+	
+	public void solveWithAITwo() {
+		
+	}
+	
 }

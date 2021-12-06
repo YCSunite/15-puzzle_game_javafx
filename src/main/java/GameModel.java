@@ -66,78 +66,93 @@ public class GameModel implements Initializable {
     	drawGameBoard();
     }
     
-    /* this is the main function for all of the tiles in the gameboard */
-    public void makeMove(String whichButton) {
-    			// TODO: check that it's a valid move   ---> needs more in the gameLogic class
-    			// TODO: swap the tiles   -----> need to figure out a way to get what game button called this function
+    /* this is the main function for all of the tiles in the gameboard
+     * 1) check if move is valid
+     * 2) if it is swap tiles
+     * 3) redraw the gameBoard
+     * 4) check if there is win
+     *  */
+    public void makeMove(int whichButton) {
+    			if (logicBot.isValid(whichButton)) {
+    				//swap the two button's text in the data structure under the hood
+    				int indexOfZero = logicBot.findZero(logicBot.gameBoardData);
+    				
+    				int tmp = logicBot.gameBoardData.get(whichButton);
+    				logicBot.gameBoardData.set(whichButton, 0);
+    				logicBot.gameBoardData.set(indexOfZero, tmp);
+    			}
+    			
     			drawGameBoard();
-    			// TODO: check for a win   ----> also implement in gameLogic class
+    			
+    			if (logicBot.isSolved()) {
+    				; // swap to congrats screen here!
+    			}
     }
     
     
     // these are used by the individual gameButtons, so that we can tell which individual game button was clicked
     public void gameButton0Click() {
-    	makeMove("0");
+    	makeMove(0);
     }
     
     public void gameButton1Click() {
-    	makeMove("1");
+    	makeMove(1);
     }
     
     public void gameButton2Click() {
-    	makeMove("2");
+    	makeMove(2);
     }
     
     public void gameButton3Click() {
-    	makeMove("3");
+    	makeMove(3);
     }
     
     public void gameButton4Click() {
-    	makeMove("4");
+    	makeMove(4);
     }
     
     public void gameButton5Click() {
-    	makeMove("5");
+    	makeMove(5);
     }
     
     public void gameButton6Click() {
-    	makeMove("6");
+    	makeMove(6);
     }
     
     public void gameButton7Click() {
-    	makeMove("7");
+    	makeMove(7);
     }
     
     public void gameButton8Click() {
-    	makeMove("8");
+    	makeMove(8);
     }
     
     public void gameButton9Click() {
-    	makeMove("9");
+    	makeMove(9);
     }
     
     public void gameButton10Click() {
-    	makeMove("10");
+    	makeMove(10);
     }
     
     public void gameButton11Click() {
-    	makeMove("11");
+    	makeMove(11);
     }
     
     public void gameButton12Click() {
-    	makeMove("12");
+    	makeMove(12);
     }
     
     public void gameButton13Click() {
-    	makeMove("13");
+    	makeMove(13);
     }
     
     public void gameButton14Click() {
-    	makeMove("14");
+    	makeMove(14);
     }
     
     public void gameButton15Click() {
-    	makeMove("15");
+    	makeMove(15);
     }
     
     /* updates the gameBoard buttons with the values of the internal int array's values */
@@ -164,8 +179,20 @@ public class GameModel implements Initializable {
     	logicBot.handleNewPuzzle();
     	this.drawGameBoard();
     }
+    
+    public void solveWithAIOne() {  // make this run on its own thread
+    	logicBot.solveWithAIOne();
+    }
+    
+    public void solveWithAITwo() {  // make this run on its own thread too
+    	logicBot.solveWithAITwo();
+    }
+    
+    public void showSolution() {  // animate move by move, and check if it's the solution each time. If it is, pause, then break out of the loop and go to congrats screen.
+    	
+    }
 
     public void exitGame(){
-
+    	System.exit(0);
 	}
 }
