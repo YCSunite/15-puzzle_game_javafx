@@ -1,7 +1,10 @@
-Matt:
+Matt  (mlaute2) :  
 - Worked to created WireFrame on lucidChart
 - Worked on test cases
 - worked on WelcomeScene
+- added puzzles 
+- worked on controller class for game play scene
+- worked on gameLogic class
 
 Yashasvi:
 - Brainstormed UI and WireFrame + worked on lucidChart wireFrame
