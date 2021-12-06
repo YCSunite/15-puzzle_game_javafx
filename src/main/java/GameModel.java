@@ -1,9 +1,16 @@
+import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.util.Duration;
+
 import java.net.URL;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -72,7 +79,7 @@ public class GameModel implements Initializable {
      * 3) redraw the gameBoard
      * 4) check if there is win
      *  */
-    public void makeMove(int whichButton) {
+    public void makeMove(int whichButton) throws Exception {
     			if (logicBot.isValid(whichButton)) {
     				//swap the two button's text in the data structure under the hood
     				int indexOfZero = logicBot.findZero(logicBot.gameBoardData);
@@ -85,73 +92,73 @@ public class GameModel implements Initializable {
     			drawGameBoard();
     			
     			if (logicBot.isSolved()) {
-    				; // swap to congrats screen here!
+    				JavaFXTemplate.switchToVictoryScene();
     			}
     }
     
     
     // these are used by the individual gameButtons, so that we can tell which individual game button was clicked
-    public void gameButton0Click() {
+    public void gameButton0Click() throws Exception {
     	makeMove(0);
     }
     
-    public void gameButton1Click() {
+    public void gameButton1Click() throws Exception {
     	makeMove(1);
     }
     
-    public void gameButton2Click() {
+    public void gameButton2Click() throws Exception {
     	makeMove(2);
     }
     
-    public void gameButton3Click() {
+    public void gameButton3Click() throws Exception {
     	makeMove(3);
     }
     
-    public void gameButton4Click() {
+    public void gameButton4Click() throws Exception {
     	makeMove(4);
     }
     
-    public void gameButton5Click() {
+    public void gameButton5Click() throws Exception {
     	makeMove(5);
     }
     
-    public void gameButton6Click() {
+    public void gameButton6Click() throws Exception {
     	makeMove(6);
     }
     
-    public void gameButton7Click() {
+    public void gameButton7Click() throws Exception {
     	makeMove(7);
     }
     
-    public void gameButton8Click() {
+    public void gameButton8Click() throws Exception {
     	makeMove(8);
     }
     
-    public void gameButton9Click() {
+    public void gameButton9Click() throws Exception {
     	makeMove(9);
     }
     
-    public void gameButton10Click() {
+    public void gameButton10Click() throws Exception {
     	makeMove(10);
     }
     
-    public void gameButton11Click() {
+    public void gameButton11Click() throws Exception {
     	makeMove(11);
     }
     
-    public void gameButton12Click() {
+    public void gameButton12Click() throws Exception {
     	makeMove(12);
     }
     
-    public void gameButton13Click() {
+    public void gameButton13Click() throws Exception {
     	makeMove(13);
     }
     
-    public void gameButton14Click() {
+    public void gameButton14Click() throws Exception {
     	makeMove(14);
     }
     
-    public void gameButton15Click() {
+    public void gameButton15Click() throws Exception {
     	makeMove(15);
     }
     

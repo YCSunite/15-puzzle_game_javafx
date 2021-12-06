@@ -12,6 +12,8 @@ import java.nio.file.Paths;
 public class JavaFXTemplate extends Application {
 
 	PauseTransition pause = new PauseTransition(Duration.seconds(10));
+	
+	static PauseTransition pauseToVictory = new PauseTransition(Duration.seconds(2));
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -30,6 +32,9 @@ public class JavaFXTemplate extends Application {
 
 			URL url2 = Paths.get("./src/main/resources/GameScene.fxml").toUri().toURL();
 			Parent root2 = FXMLLoader.load(url2);
+			
+			URL url3 = Paths.get("./src/main/resources/VictoryScene.fxml").toUri().toURL();
+			Parent root3 = FXMLLoader.load(url3);
 
 			primaryStage.setTitle("Welcome to 15 puzzle!!!");
 		//loading Welcome scene to primary stage
@@ -39,6 +44,12 @@ public class JavaFXTemplate extends Application {
 
 			Scene s2 = new Scene(root2, 700,500);
 			s2.getStylesheets().add("GameScene.css");
+			
+			Scene s3 = new Scene(root3, 700,500);
+			s3.getStylesheets().add("VictoryScene.css");
+			
+			pauseToVictory.setOnFinished(event->primaryStage.setScene(s3));
+			
 		    pause.setOnFinished(event->primaryStage.setScene(s2));
 			pause.play();
 			primaryStage.setScene(s1);
@@ -51,4 +62,8 @@ public class JavaFXTemplate extends Application {
 
 	}
 
+	public static void switchToVictoryScene() {
+		pauseToVictory.play();
+	}
+	
 }
