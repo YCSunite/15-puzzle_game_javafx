@@ -1,3 +1,7 @@
 .button{
     -fx-font-family: "serif";
 }
+
+.border{
+    -fx-background-color: darkturquoise;
+}

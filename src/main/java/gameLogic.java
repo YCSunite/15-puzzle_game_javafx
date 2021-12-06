@@ -5,6 +5,8 @@ import java.util.ArrayList;
 
 public class gameLogic {
 
+	public static int whichPuzzle = 0;
+	
 	public DB_Solver2 ai;  // " = new DB_Solver2(node, <hueristicHere>) " will be called on this object when the user clicks the "solve with AI" buttons
 	
 	public ArrayList<Integer> gameBoardData;  // acts as the "under the hood" data structure storing our gameboard
@@ -17,7 +19,7 @@ public class gameLogic {
 		}
 		
 		this.addPuzzles();
-		gameBoardData = new ArrayList<Integer>(puzzleList.get(0));  // initializes the gameBoard to be the first puzzle in puzzleList
+		gameBoardData = new ArrayList<Integer>(puzzleList.get(whichPuzzle));  // initializes the gameBoard to be the first puzzle in puzzleList
 	}
 	
 	private void addPuzzles() {
@@ -113,19 +115,20 @@ public class gameLogic {
 			
 		// begin puzzle six:
 			puzzleList.get(5).add(1);
-			puzzleList.get(5).add(3);
-			puzzleList.get(5).add(4);
-			puzzleList.get(5).add(15);
-			puzzleList.get(5).add(2);
+			puzzleList.get(5).add(8);
+			puzzleList.get(5).add(9);
 			puzzleList.get(5).add(0);
-			puzzleList.get(5).add(12);
+			puzzleList.get(5).add(2);
 			puzzleList.get(5).add(7);
+			puzzleList.get(5).add(10);
+			puzzleList.get(5).add(15);
+			puzzleList.get(5).add(3);
 			puzzleList.get(5).add(6);
 			puzzleList.get(5).add(11);
 			puzzleList.get(5).add(14);
-			puzzleList.get(5).add(8);
-			puzzleList.get(5).add(9);
-			puzzleList.get(5).add(10);
+			puzzleList.get(5).add(4);
+			puzzleList.get(5).add(5);
+			puzzleList.get(5).add(12);
 			puzzleList.get(5).add(13);
 			
 		// begin puzzle seven:
@@ -200,4 +203,23 @@ public class gameLogic {
 			puzzleList.get(9).add(6);
 			puzzleList.get(9).add(15);
 	}
+	
+	// call this function every time the "new puzzle" button is clicked
+	public void handleNewPuzzle() {
+		if (whichPuzzle == 9) {
+			whichPuzzle = 0;
+		} else {
+			whichPuzzle++;
+		}
+		
+		gameBoardData = new ArrayList<Integer>(puzzleList.get(whichPuzzle));
+	}
+	
+//	public boolean isValid(String whichTile) {
+		// try to find a way to get our arrayList into a plain int array
+//		
+//		
+////		int[] gameBoardDataArray = gameBoardData.toArray(gameBoardDataArray);
+////		int zeroIndex = ai.findZero(gameBoardDataArray);
+//	}
 }
