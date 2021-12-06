@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+
+<Pane fx:controller="VictoryScene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button layoutX="171.0" layoutY="215.0" mnemonicParsing="false" text="New Puzzle" />
+      <Button layoutX="331.0" layoutY="215.0" mnemonicParsing="false" text="Exit game" />
+      <Label layoutX="147.0" layoutY="53.0" text="Congratulations!!!! ">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="190.0" layoutY="134.0" text="You won this puzzle">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>
